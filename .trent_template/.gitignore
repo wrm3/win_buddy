@@ -1,0 +1,12 @@
+# .trent/.gitignore — trent system local files
+# This file is safe to overwrite on upgrades; it covers only the .trent/ subtree.
+
+# Hook-generated logs (audit, shell commands, reflection hints)
+logs/
+*.log
+
+# Backup archives created by trent_install on upgrade
+*.zip
+
+# Temp/scratch files
+*.tmp

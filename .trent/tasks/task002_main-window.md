@@ -2,32 +2,68 @@
 id: 2
 title: 'Create main window with frameless, always-on-top behavior'
 type: feature
-status: pending
+status: completed
 priority: critical
 phase: 0
-subsystems: [ui, core]
-project_context: 'Build the main application window that stays visible above other apps'
+subsystem: core
+concern: feature
+project_context: 'Core window behavior that makes WinBuddy a floating widget. Directly delivers G-01 (always-visible productivity widget).'
 dependencies: [1]
+ai_safe: true
+blast_radius: low
+requires_verification: true
+requires_solo_agent: false
+spec_version: 1
+spec_last_verified: "2026-02-03"
+allow_spec_update: false
+claimed_by: null
+claimed_at: null
+estimated_duration_minutes: 45
+claim_ttl_minutes: 68
+claim_expires_at: null
+last_heartbeat: null
+verified_by: "human"
+verified_date: "2026-02-03"
+evidence_of_completion:
+  type: manual_check
+  path: null
+failure_history: []
+execution_progress:
+  last_checkpoint: "completed"
+  checkpoint_date: "2026-02-03"
+  completed_steps: ["Set Qt.WindowStaysOnTopHint flag", "Set frameless window flag", "Styled window background"]
+  remaining_steps: []
+  checkpoint_note: null
+execution_cost:
+  model_used: null
+  input_tokens: null
+  output_tokens: null
+  estimated_cost_usd: null
+  review_cost_usd: null
+  total_cost_usd: null
+tags: [window, qt-flags, frameless]
+created_date: "2026-02-03"
+completed_date: "2026-02-03"
+rules_version: "6.0.0"
+actual_files_changed: 2
 ---
 
-# Task: Create main window with frameless, always-on-top behavior
+# Task 2: Create main window with frameless, always-on-top behavior
 
 ## Objective
-Create a frameless Qt window that stays on top of all other windows, like the Teams screen share toolbar.
+Create a PyQt6 main window that is frameless (no title bar), always on top of all other windows, and visually styled as a floating widget.
 
 ## Acceptance Criteria
-- [ ] Window has no standard title bar/frame
-- [ ] Window stays on top of all other applications
-- [ ] Window has semi-transparent or custom styled background
-- [ ] Window appears at a reasonable default position
+
+- [x] Window has no title bar or system frame
+- [x] Window stays on top of all other applications
+- [x] Window has semi-transparent or styled background
+- [x] Window renders without errors
 
 ## Implementation Notes
-- Use Qt.WindowType.FramelessWindowHint
-- Use Qt.WindowType.WindowStaysOnTopHint
-- Use Qt.WindowType.Tool (to avoid taskbar entry)
-- Set WA_TranslucentBackground for custom styling
-- Apply rounded corners via stylesheet or mask
+- Used `Qt.WindowType.FramelessWindowHint` and `Qt.WindowType.WindowStaysOnTopHint`
+- Applied stylesheet for dark widget background with rounded corners
 
 ## Verification
-- [ ] Open other apps - widget stays visible
-- [ ] Window looks clean without system decorations
+- [x] Window stays on top when switching to other apps
+- [x] No system frame visible
